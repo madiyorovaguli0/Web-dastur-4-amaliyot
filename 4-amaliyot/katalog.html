@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bilim Ziyo o‘quv markazi kurslari katalogi: qidiruv, filtr va saralash.">
+    <title>Kurslar katalogi — Bilim Ziyo</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body id="yuqori">
+    <header class="site-header">
+        <p class="brand-mark">BZ</p>
+        <h1>Kurslar katalogi</h1>
+        <p class="tagline">O‘zingizga mos kursni toping!</p>
+        <p>Nom bo‘yicha qidiring, yo‘nalishni tanlang va narx bo‘yicha saralang.</p>
+    </header>
+
+    <nav class="site-nav" aria-label="Asosiy navigatsiya">
+        <a class="nav-brand" href="index.html">Bilim Ziyo</a>
+        <ul>
+            <li><a href="index.html">Bosh sahifa</a></li>
+            <li><a href="batafsil.html">Kurslar haqida</a></li>
+            <li><a href="katalog.html" aria-current="page">Katalog</a></li>
+            <li><a href="batafsil.html#narxlar">Narxlar</a></li>
+            <li><a href="aloqa.html">Aloqa</a></li>
+        </ul>
+        <button class="tema-tugma" id="temaTugma" type="button">🌙 Tungi rejim</button>
+    </nav>
+
+    <main class="container">
+        <div class="layout">
+            <div class="content">
+                <section id="statistika">
+                    <h2>Statistika</h2>
+                    <div class="stat-qator">
+                        <div class="stat">
+                            <span class="stat-son" id="statJami">0</span>
+                            <span class="stat-nom">Jami kurslar</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-son" id="statOrtacha">0</span>
+                            <span class="stat-nom">O‘rtacha oylik to‘lov</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-son" id="statEngQimmat">—</span>
+                            <span class="stat-nom">Eng qimmat kurs</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="kurslar-royxati">
+                    <h2>Kurslar</h2>
+
+                    <div class="boshqaruv">
+                        <div class="form-field">
+                            <label for="qidiruv">Nom bo‘yicha qidiruv</label>
+                            <input type="search" id="qidiruv" placeholder="Masalan: ingliz" autocomplete="off">
+                        </div>
+                        <div class="form-field">
+                            <label for="kategoriya">Yo‘nalish</label>
+                            <select id="kategoriya">
+                                <option value="hammasi">Hammasi</option>
+                                <option value="Til">Til</option>
+                                <option value="Fan">Fan</option>
+                                <option value="Texnologiya">Texnologiya</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <label for="saralash">Saralash</label>
+                            <select id="saralash">
+                                <option value="standart">Standart tartib</option>
+                                <option value="narx-osish">Narx: arzondan qimmatga</option>
+                                <option value="narx-kamayish">Narx: qimmatdan arzonga</option>
+                                <option value="nom">Nomi: alifbo tartibida</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <p>Ko‘rsatilmoqda: <strong id="soni">0</strong> ta kurs</p>
+
+                    <!-- Kartalar shu yerga JavaScript orqali qo‘shiladi -->
+                    <div class="katalog" id="kartalar"></div>
+
+                    <p class="izoh" id="bosh" hidden>Hech narsa topilmadi</p>
+                    <p class="izoh">Barcha narx va jadvallar namuna sifatida keltirilgan.</p>
+                </section>
+            </div>
+
+            <aside class="sidebar">
+                <h2>Foydali maslahat</h2>
+                <p>Kursning «Batafsil» tugmasini bosib, dars kunlari, soati va narxini ko‘ring.</p>
+                <p><a class="btn" href="aloqa.html">Kursga yozilish</a></p>
+                <p class="izoh">Qabul yopiq kurslar uchun navbatga yozilishingiz mumkin.</p>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Modal oyna: «Batafsil» bosilganda ochiladi -->
+    <div class="modal" id="modal">
+        <div class="modal-oyna" role="dialog" aria-modal="true" aria-labelledby="modalNomi">
+            <button class="modal-yopish" id="modalYopish" type="button" aria-label="Yopish">×</button>
+            <img id="modalRasm" src="" alt="" width="800" height="500">
+            <h2 id="modalNomi"></h2>
+            <p id="modalYonalish"></p>
+            <p id="modalDaraja"></p>
+            <p id="modalVaqt"></p>
+            <p id="modalNarx"></p>
+            <p id="modalHolat"></p>
+            <p class="izoh" id="modalTeglar"></p>
+            <a class="btn" href="aloqa.html">Kursga yozilish</a>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-cols">
+                <div class="footer-col">
+                    <h2>Bilim Ziyo</h2>
+                    <p>Urganch va Xorazm hududidagi o‘quvchilar uchun o‘quv markazi (namunaviy loyiha).</p>
+                </div>
+                <div class="footer-col">
+                    <h2>Sahifalar</h2>
+                    <ul>
+                        <li><a href="index.html">Bosh sahifa</a></li>
+                        <li><a href="batafsil.html">Kurslar haqida</a></li>
+                        <li><a href="katalog.html">Katalog</a></li>
+                        <li><a href="aloqa.html">Aloqa</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h2>Aloqa</h2>
+                    <p>Email: <a href="mailto:info@example.com">info@example.com</a></p>
+                    <p>Telefon: <a href="tel:+998901234567">+998 90 123 45 67</a></p>
+                </div>
+            </div>
+            <p class="copyright">&copy; 2026 Bilim Ziyo o‘quv markazi. Barcha huquqlar himoyalangan.</p>
+        </div>
+    </footer>
+
+    <a class="to-top" href="#yuqori">↑ Yuqoriga</a>
+
+    <!-- Tartib muhim: avval ma'lumotlar, keyin komponentlar, oxirida katalog -->
+    <script src="js/data.js" defer></script>
+    <script src="js/ui.js" defer></script>
+    <script src="js/katalog.js" defer></script>
+</body>
+</html>

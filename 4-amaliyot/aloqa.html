@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bilim Ziyo o‘quv markazi kurslariga yozilish formasi va aloqa ma’lumotlari.">
+    <title>Aloqa va kursga yozilish — Bilim Ziyo</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body id="yuqori">
+    <header class="site-header">
+        <p class="brand-mark">BZ</p>
+        <h1>Aloqa va kursga yozilish</h1>
+        <p class="tagline">Biz bilan bog‘laning!</p>
+        <p>Arizani to‘ldiring — markaz xodimi siz bilan bog‘lanadi.</p>
+    </header>
+
+    <nav class="site-nav" aria-label="Asosiy navigatsiya">
+        <a class="nav-brand" href="index.html">Bilim Ziyo</a>
+        <ul>
+            <li><a href="index.html">Bosh sahifa</a></li>
+            <li><a href="batafsil.html">Kurslar haqida</a></li>
+            <li><a href="batafsil.html#narxlar">Narxlar</a></li>
+            <li><a href="katalog.html">Katalog</a></li>
+            <li><a href="aloqa.html" aria-current="page">Aloqa</a></li>
+        </ul>
+        <button class="tema-tugma" id="temaTugma" type="button">🌙 Tungi rejim</button>
+    </nav>
+
+    <main class="container">
+        <div class="layout">
+            <div class="content">
+                <section id="forma">
+                    <h2>Kursga yozilish arizasi</h2>
+                    <p>Majburiy maydonlar: ism-familiya, email, telefon, kurs yo‘nalishi va rozilik belgisi.</p>
+
+                    <form class="enroll-form" id="ariza" method="post" novalidate>
+                        <div class="form-field">
+                            <label for="ism">Ism-familiya</label>
+                            <input type="text" id="ism" name="ism" placeholder="Masalan: Aliyev Vali" autocomplete="name" required>
+                            <p class="xato" id="ism-xato"></p>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="email">Elektron pochta</label>
+                            <input type="email" id="email" name="email" placeholder="ismingiz@example.com" autocomplete="email" required>
+                            <p class="xato" id="email-xato"></p>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="telefon">Telefon raqami</label>
+                            <input type="tel" id="telefon" name="telefon" placeholder="+998901234567" pattern="\+998[0-9]{9}" title="Format: +998 va 9 ta raqam, masalan +998901234567" autocomplete="tel" required>
+                            <p class="xato" id="telefon-xato"></p>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="yosh">Yoshingiz</label>
+                            <input type="number" id="yosh" name="yosh" min="7" max="70" placeholder="Masalan: 16">
+                            <p class="xato" id="yosh-xato"></p>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="kurs">Kurs yo‘nalishi</label>
+                            <select id="kurs" name="kurs" required>
+                                <option value="" selected disabled>Kursni tanlang</option>
+                                <option value="ingliz">Ingliz tili</option>
+                                <option value="matematika">Matematika</option>
+                                <option value="veb">Veb-dasturlash</option>
+                            </select>
+                            <p class="xato" id="kurs-xato"></p>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="boshlash">Darsni boshlash sanasi</label>
+                            <input type="date" id="boshlash" name="boshlash" min="2026-11-10" max="2027-01-31">
+                        </div>
+
+                        <fieldset>
+                            <legend>O‘qish shakli</legend>
+                            <div class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" id="shakl-markaz" name="shakl" value="markazda" checked>
+                                    <label for="shakl-markaz">Markazda (offlayn)</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="shakl-onlayn" name="shakl" value="onlayn">
+                                    <label for="shakl-onlayn">Onlayn</label>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <div class="form-field">
+                            <label for="vaqt">Qulay dars vaqti</label>
+                            <select id="vaqt" name="vaqt">
+                                <option value="ertalab">Ertalab (09:00–12:00)</option>
+                                <option value="tushdan-keyin">Tushdan keyin (14:00–17:00)</option>
+                                <option value="kechqurun">Kechqurun (17:30–20:00)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="izoh">Qo‘shimcha izoh</label>
+                            <textarea id="izoh" name="izoh" rows="4" placeholder="Savol yoki istaklaringizni yozing"></textarea>
+                            <p class="xato" id="izoh-xato"></p>
+                        </div>
+
+                        <div class="check-field">
+                            <input type="checkbox" id="yangilik" name="yangilik" value="ha">
+                            <label for="yangilik">Yangi guruhlar haqida xabar olishni xohlayman</label>
+                        </div>
+
+                        <div class="check-field">
+                            <input type="checkbox" id="rozilik" name="rozilik" value="ha" required>
+                            <label for="rozilik">Ma’lumotlarimni qayta ishlashga roziman</label>
+                        </div>
+                        <p class="xato" id="rozilik-xato"></p>
+
+                        <div class="form-buttons">
+                            <button class="btn" type="submit">Ariza yuborish</button>
+                            <button class="btn btn-light" type="reset">Tozalash</button>
+                        </div>
+                        <p class="muvaffaqiyat" id="muvaffaqiyat" role="status" hidden></p>
+                    </form>
+                </section>
+
+                <section id="xarita">
+                    <h2>Xaritada</h2>
+                    <iframe class="map-frame" title="Urganch shahri xaritasi (Google Maps)" src="https://www.google.com/maps?q=Urganch&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <p class="izoh">Xaritada Urganch shahri ko‘rsatilgan. Markazning aniq manzili tasdiqlangach yangilanadi.</p>
+                </section>
+            </div>
+
+            <aside class="sidebar">
+                <h2>Aloqa ma’lumotlari</h2>
+                <p><strong>Manzil:</strong><br>Urganch shahri (aniq manzil keyin kiritiladi)</p>
+                <p><strong>Ish vaqti:</strong><br>Dushanba–Shanba, 09:00–20:00</p>
+                <p><strong>Email:</strong><br><a href="mailto:info@example.com">info@example.com</a></p>
+                <p><strong>Telefon:</strong><br><a href="tel:+998901234567">+998 90 123 45 67</a></p>
+                <p class="izoh">Aloqa ma’lumotlari namuna. Topshirishdan oldin haqiqiy ma’lumotlar bilan almashtiring.</p>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-cols">
+                <div class="footer-col">
+                    <h2>Bilim Ziyo</h2>
+                    <p>Urganch va Xorazm hududidagi o‘quvchilar uchun o‘quv markazi (namunaviy loyiha).</p>
+                </div>
+                <div class="footer-col">
+                    <h2>Sahifalar</h2>
+                    <ul>
+                        <li><a href="index.html">Bosh sahifa</a></li>
+                        <li><a href="batafsil.html">Kurslar haqida</a></li>
+                        <li><a href="katalog.html">Katalog</a></li>
+                        <li><a href="aloqa.html">Aloqa</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h2>Aloqa</h2>
+                    <p>Email: <a href="mailto:info@example.com">info@example.com</a></p>
+                    <p>Telefon: <a href="tel:+998901234567">+998 90 123 45 67</a></p>
+                </div>
+            </div>
+            <p class="copyright">&copy; 2026 Bilim Ziyo o‘quv markazi. Barcha huquqlar himoyalangan.</p>
+        </div>
+    </footer>
+
+    <a class="to-top" href="#yuqori">↑ Yuqoriga</a>
+    <script src="js/ui.js" defer></script>
+</body>
+</html>
